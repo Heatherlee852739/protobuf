@@ -18,7 +18,6 @@
 #include <limits>
 #include <string>
 
-#include "absl/base/prefetch.h"
 #include "absl/log/absl_check.h"
 #include "google/protobuf/arena.h"
 #include "google/protobuf/message_lite.h"
@@ -91,14 +90,6 @@ void RepeatedPtrFieldBase::DestroyProtos() {
   // TODO:  Eliminate this store when invoked from the destructor,
   // since it is dead.
   tagged_rep_or_elem_ = nullptr;
-}
-
-void* RepeatedPtrFieldBase::AddMessageLite(ElementFactory factory) {
-  return AddInternal(factory);
-}
-
-void* RepeatedPtrFieldBase::AddString() {
-  return AddInternal([](Arena* arena) { return NewStringElement(arena); });
 }
 
 void RepeatedPtrFieldBase::CloseGap(int start, int num) {
@@ -221,10 +212,6 @@ void RepeatedPtrFieldBase::MergeFrom<MessageLite>(
   if (new_size > allocated_size()) {
     rep()->allocated_size = new_size;
   }
-}
-
-void* NewStringElement(Arena* arena) {
-  return Arena::Create<std::string>(arena);
 }
 
 }  // namespace internal
