@@ -76,6 +76,7 @@ class Proto2LiteTest {
           optionalImportEnum = ImportEnumLite.IMPORT_LITE_BAZ
           optionalStringPiece = "124"
           optionalCord = "125"
+          optionalBytesCord = toBytes("optional bytes cord")
           repeatedInt32.add(201)
           repeatedInt64.add(202)
           repeatedUint32.add(203)
@@ -432,6 +433,7 @@ class Proto2LiteTest {
           setExtension(UnittestLite.optionalImportEnumExtensionLite, ImportEnumLite.IMPORT_LITE_BAZ)
           setExtension(UnittestLite.optionalStringPieceExtensionLite, "124")
           setExtension(UnittestLite.optionalCordExtensionLite, "125")
+          setExtension(UnittestLite.optionalBytesCordExtensionLite, toBytes("optional bytes cord"))
           this[UnittestLite.repeatedInt32ExtensionLite].add(201)
           this[UnittestLite.repeatedInt64ExtensionLite].add(202L)
           this[UnittestLite.repeatedUint32ExtensionLite].add(203)

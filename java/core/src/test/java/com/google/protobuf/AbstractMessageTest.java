@@ -520,6 +520,7 @@ public class AbstractMessageTest {
         UnittestProto.TestEmptyMessage.parseFrom(
             e.toByteArray(), ExtensionRegistryLite.getEmptyRegistry());
     checkEqualsIsConsistent(eUnknownFields, eUnknownFields2);
+    checkHashCodeIsConsistent(eUnknownFields, eUnknownFields2);
   }
 
   /** Asserts that the given proto has symmetric equals and hashCode methods. */
@@ -532,10 +533,14 @@ public class AbstractMessageTest {
     checkEqualsIsConsistent(message, dynamic);
   }
 
-  /** Asserts that the given protos are equal and have the same hash code. */
+  /** Asserts that the given protos are equal. */
   private void checkEqualsIsConsistent(Message message1, Message message2) {
     assertThat(message1).isEqualTo(message2);
     assertThat(message2).isEqualTo(message1);
+  }
+
+  /** Asserts that the given protos have the same hash code. */
+  private void checkHashCodeIsConsistent(Message message1, Message message2) {
     assertThat(message2.hashCode()).isEqualTo(message1.hashCode());
   }
 

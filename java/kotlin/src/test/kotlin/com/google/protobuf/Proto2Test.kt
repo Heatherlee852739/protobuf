@@ -83,6 +83,7 @@ class Proto2Test {
           optionalImportEnum = ImportEnum.IMPORT_BAZ
           optionalStringPiece = "124"
           optionalCord = "125"
+          optionalBytesCord = toBytes("optional bytes cord")
           repeatedInt32.add(201)
           repeatedInt64.add(202)
           repeatedUint32.add(203)
@@ -407,6 +408,7 @@ class Proto2Test {
           this[UnittestProto.optionalImportEnumExtension] = ImportEnum.IMPORT_BAZ
           this[UnittestProto.optionalStringPieceExtension] = "124"
           this[UnittestProto.optionalCordExtension] = "125"
+          this[UnittestProto.optionalBytesCordExtension] = toBytes("optional bytes cord")
           this[UnittestProto.repeatedInt32Extension].add(201)
           this[UnittestProto.repeatedInt64Extension].add(202L)
           this[UnittestProto.repeatedUint32Extension].add(203)
