@@ -326,6 +326,21 @@ cc_test(
     ],
 )
 
+cc_test(
+    name = "byte_size_test",
+    srcs = ["byte_size_test.cc"],
+    deps = [
+        ":test_messages_proto2_upb_minitable",
+        ":test_messages_proto2_upb_proto",
+        "//upb:base",
+        "//upb:mem",
+        "//upb:mini_table",
+        "//upb/wire:byte_size",
+        "@com_google_googletest//:gtest",
+        "@com_google_googletest//:gtest_main",
+    ],
+)
+
 # begin:github_only
 filegroup(
     name = "test_srcs",

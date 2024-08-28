@@ -60,6 +60,21 @@ cc_library(
 )
 
 cc_library(
+    name = "byte_size",
+    srcs = ["byte_size.c"],
+    hdrs = ["byte_size.h"],
+    compatible_with = ["//buildenv/target:non_prod"],
+    visibility = ["//upb/test:__pkg__"],
+    deps = [
+        "//upb:mem",
+        "//upb:message",
+        "//upb:mini_table",
+        "//upb:port",
+        "//upb:wire",
+    ],
+)
+
+cc_library(
     name = "eps_copy_input_stream",
     srcs = ["eps_copy_input_stream.c"],
     hdrs = ["eps_copy_input_stream.h"],
